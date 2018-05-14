@@ -141,7 +141,7 @@ public final class QueryUtils {
 
         // Create an empty ArrayList that we can start adding articles to
         List<Article> articles = new ArrayList<>();
-
+*****************************************************************************
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
@@ -150,18 +150,19 @@ public final class QueryUtils {
             JSONObject baseJsonResponse = new JSONObject(articleJSON);
 
             // Extract the JSONArray associated with the key called "response",
-            // which represents a list of results (or articles).
-            JSONArray articleArray = baseJsonResponse.getJSONArray("response");
+            // which represents a list of features (or earthquakes).
+            JSONArray articlesArray = baseJsonResponse.getJSONArray("response");
 
-            // For each earthquake in the earthquakeArray, create an {@link Article} object
-            for (int i = 0; i < articleArray.length(); i++) {
+
+            // For each article in the articleArray, create an {@link Article} object
+            for (int i = 0; i < articlesArray.length(); i++) {
                 // Get a single article at position i within the list of articles
-                JSONObject currentArticle = articleArray.getJSONObject(i);
-
+                JSONObject currentArticle = articlesArray.getJSONObject(i);
+*************************************************************************
                 // For a given Article, extract the JSONObject associated with the
                 // key called "results", which represents a list of all properties
                 // for that Article.
-                JSONObject results = currentArticle.getJSONObject("results");
+                JSONArray results = baseJsonResponse.getJSONArray("results");
 
                 // Extract the value for the key called "webTitle"
                 String title = results.getString("webTitle");
