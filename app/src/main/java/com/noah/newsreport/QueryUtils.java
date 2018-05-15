@@ -141,7 +141,8 @@ public final class QueryUtils {
 
         // Create an empty ArrayList that we can start adding articles to
         List<Article> articles = new ArrayList<>();
-*****************************************************************************
+
+
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
@@ -149,35 +150,30 @@ public final class QueryUtils {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(articleJSON);
 
-            // Extract the JSONArray associated with the key called "response",
-            // which represents a list of features (or earthquakes).
-            JSONArray articlesArray = baseJsonResponse.getJSONArray("response");
+            JSONObject response = baseJsonResponse.getJSONObject("response");
 
+            // Extract the JSONArray associated with the key called "results".
+            JSONArray results = response.getJSONArray("results");
 
             // For each article in the articleArray, create an {@link Article} object
-            for (int i = 0; i < articlesArray.length(); i++) {
+            for (int i = 0; i < results.length(); i++) {
                 // Get a single article at position i within the list of articles
-                JSONObject currentArticle = articlesArray.getJSONObject(i);
-*************************************************************************
-                // For a given Article, extract the JSONObject associated with the
-                // key called "results", which represents a list of all properties
-                // for that Article.
-                JSONArray results = baseJsonResponse.getJSONArray("results");
+                JSONObject currentArticle = results.getJSONObject(i);
 
                 // Extract the value for the key called "webTitle"
-                String title = results.getString("webTitle");
+                String title = currentArticle.getString("webTitle");
 
-                // Extract the value for the key called "author???????????"
-                String author = results.getString("???????????????????");
+                // Extract the value for the key called "author"
+                String author = currentArticle.getString("author");
 
                 // Extract the value for the key called "webPublicationDate"
-                long date = results.getLong("webPublicationDate");
+                long date = currentArticle.getLong("webPublicationDate");
 
                 // Extract the value for the key called "sectionId"
-                String section = results.getString("sectionId");
+                String section = currentArticle.getString("sectionId");
 
                 // Extract the value for the key called "url"
-                String url = results.getString("webUrl");
+                String url = currentArticle.getString("webUrl");
 
                 // Create a new {@link Article} object with the title, author, date, section
                 // and url from the JSON response.
