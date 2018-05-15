@@ -15,7 +15,7 @@ public class Article {
     /**
      * The date the article was published
      */
-    private long mDate;
+    private String mDate;
 
     /**
      * Section of article
@@ -36,7 +36,7 @@ public class Article {
      * @param section section of article
      * @param url URL of article
      */
-    public Article(String title, long date, String section, String url){
+    public Article(String title, String date, String section, String url){
         mTitle = title;
       //  mAuthor = author;
         mDate = date;
@@ -55,7 +55,7 @@ public class Article {
         return mAuthor;
     }
 */
-    public long getDate(){
+    public String getDate(){
         return mDate;
     }
 

@@ -39,11 +39,14 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         TextView date = (TextView) listItemView.findViewById(R.id.date);
         // Create a new Date object from the Date of the article
-        Date dateObject = new Date(currentArticle.getDate());
+
+        //Date dateObject = new Date(currentArticle.getDate());
         // Format the date string (i.e. "Mar 3, 1984")
-        String formattedDate = formatDate(dateObject);
+        //String formattedDate = formatDate(dateObject);
         // Display the date of the current Article in that TextView
-        date.setText(formattedDate);
+        //date.setText(formattedDate);
+        date.setText(currentArticle.getDate());
+        
 
         TextView section = (TextView) listItemView.findViewById(R.id.section);
         section.setText(currentArticle.getSection());

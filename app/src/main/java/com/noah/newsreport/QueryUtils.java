@@ -167,7 +167,7 @@ public final class QueryUtils {
                // String author = currentArticle.getString("author");
 
                 // Extract the value for the key called "webPublicationDate"
-                long date = currentArticle.getLong("webPublicationDate");
+                String date = currentArticle.getString("webPublicationDate");
 
                 // Extract the value for the key called "sectionId"
                 String section = currentArticle.getString("sectionId");
