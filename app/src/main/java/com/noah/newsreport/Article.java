@@ -10,7 +10,7 @@ public class Article {
     /**
      * Author of article
      */
-    private String mAuthor;
+  //  private String mAuthor;
 
     /**
      * The date the article was published
@@ -31,14 +31,14 @@ public class Article {
      * Constructor
      * Create a new Article object.
      * @param title title of article
-     * @param author author of article
+    // * @param author author of article
      * @param date Date of article
      * @param section section of article
      * @param url URL of article
      */
-    public Article(String title, String author, long date, String section, String url){
+    public Article(String title, long date, String section, String url){
         mTitle = title;
-        mAuthor = author;
+      //  mAuthor = author;
         mDate = date;
         mSection = section;
         mUrl= url;
@@ -51,10 +51,10 @@ public class Article {
         return mTitle;
     }
 
-    public String getAuthor(){
+    /**public String getAuthor(){
         return mAuthor;
     }
-
+*/
     public long getDate(){
         return mDate;
     }

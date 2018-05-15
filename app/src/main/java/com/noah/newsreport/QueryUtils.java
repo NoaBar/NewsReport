@@ -164,7 +164,7 @@ public final class QueryUtils {
                 String title = currentArticle.getString("webTitle");
 
                 // Extract the value for the key called "author"
-                String author = currentArticle.getString("author");
+               // String author = currentArticle.getString("author");
 
                 // Extract the value for the key called "webPublicationDate"
                 long date = currentArticle.getLong("webPublicationDate");
@@ -177,7 +177,7 @@ public final class QueryUtils {
 
                 // Create a new {@link Article} object with the title, author, date, section
                 // and url from the JSON response.
-                Article article = new Article(title, author, date, section, url);
+                Article article = new Article(title, date, section, url);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 articles.add(article);
