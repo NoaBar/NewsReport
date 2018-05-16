@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity
      * TextView that is displayed when the list is empty
      */
     private TextView mEmptyStateTextView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

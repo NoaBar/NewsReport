@@ -142,7 +142,6 @@ public final class QueryUtils {
         // Create an empty ArrayList that we can start adding articles to
         List<Article> articles = new ArrayList<>();
 
-
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
@@ -178,7 +177,6 @@ public final class QueryUtils {
                 if (currentArticle.has("webPublicationDate")) {
                     date = currentArticle.getString("webPublicationDate");
                 }
-
 
                 // Extract the value for the key called "sectionId"
                 String section = currentArticle.getString("sectionId");

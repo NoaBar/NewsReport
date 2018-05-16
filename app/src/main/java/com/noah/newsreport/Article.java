@@ -30,40 +30,41 @@ public class Article {
     /**
      * Constructor
      * Create a new Article object.
-     * @param title title of article
-     * @param author author of article
-     * @param date Date of article
+     *
+     * @param title   title of article
+     * @param author  author of article
+     * @param date    Date of article
      * @param section section of article
-     * @param url URL of article
+     * @param url     URL of article
      */
-    public Article(String title, String author, String date, String section, String url){
+    public Article(String title, String author, String date, String section, String url) {
         mTitle = title;
         mAuthor = author;
         mDate = date;
         mSection = section;
-        mUrl= url;
+        mUrl = url;
     }
 
-    /**Getters
+    /**
+     * Getters
      */
-
-    public String getTitle(){
+    public String getTitle() {
         return mTitle;
     }
 
-    public String getAuthor(){
+    public String getAuthor() {
         return mAuthor;
     }
 
-    public String getDate(){
+    public String getDate() {
         return mDate;
     }
 
-    public String getSection(){
+    public String getSection() {
         return mSection;
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return mUrl;
     }
 

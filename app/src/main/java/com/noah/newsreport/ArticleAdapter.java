@@ -21,7 +21,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
     private static final String LOG_TAG = ArticleAdapter.class.getName();
 
-    public ArticleAdapter (Activity activity, ArrayList<Article> articles) {
+    public ArticleAdapter(Activity activity, ArrayList<Article> articles) {
         super(activity, 0, articles);
     }
 
@@ -51,8 +51,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             Date dateObject = parseJSONDate(currentArticle.getDate());
             date.setText(formatDate(dateObject));
         } catch (Exception e) {
-            Log.e(LOG_TAG,"Date is not valid.",e);
-            date.setText("N/A");
+            Log.e(LOG_TAG, "Date is not valid.", e);
+            date.setText(R.string.na);
         }
 
         TextView section = (TextView) listItemView.findViewById(R.id.section);
@@ -66,24 +66,24 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
      * Accepts string and returns date
      * taken from http://www.java2s.com/Code/Java/Data-Type/ISO8601dateparsingutility.htm
      */
-    public static Date parseJSONDate( String input ) throws java.text.ParseException {
+    public static Date parseJSONDate(String input) throws java.text.ParseException {
 
         //NOTE: SimpleDateFormat uses GMT[-+]hh:mm for the TZ which breaks
         //things a bit.  Before we go on we have to repair this.
-        SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssz" );
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz");
 
         //this is zero time so we need to add that TZ indicator for
-        if ( input.endsWith( "Z" ) ) {
-            input = input.substring( 0, input.length() - 1) + "GMT-00:00";
+        if (input.endsWith("Z")) {
+            input = input.substring(0, input.length() - 1) + "GMT-00:00";
         } else {
             int inset = 6;
 
-            String s0 = input.substring( 0, input.length() - inset );
-            String s1 = input.substring( input.length() - inset, input.length() );
+            String s0 = input.substring(0, input.length() - inset);
+            String s1 = input.substring(input.length() - inset, input.length());
 
             input = s0 + "GMT" + s1;
         }
-        return df.parse( input );
+        return df.parse(input);
     }
 
     /**
@@ -93,5 +93,4 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
         return dateFormat.format(dateObject);
     }
-
 }
