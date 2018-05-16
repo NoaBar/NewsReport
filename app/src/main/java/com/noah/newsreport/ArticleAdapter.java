@@ -50,7 +50,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         try {
             Date dateObject = parseJSONDate(currentArticle.getDate());
             date.setText(formatDate(dateObject));
-        } catch (ParseException e) {
+        } catch (Exception e) {
             Log.e(LOG_TAG,"Date is not valid.",e);
             date.setText("N/A");
         }
