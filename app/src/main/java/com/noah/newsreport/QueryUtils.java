@@ -163,11 +163,22 @@ public final class QueryUtils {
                 // Extract the value for the key called "webTitle"
                 String title = currentArticle.getString("webTitle");
 
-                // Extract the value for the key called "author"
-               // String author = currentArticle.getString("author");
+                // Author- Extract the value for the key called "webTitle" in the tags array
+                JSONArray tags = currentArticle.getJSONArray("tags");
+                String author = "N/A";
+                for (int t = 0; t < tags.length(); t++) {
+                    JSONObject currentTags = tags.getJSONObject(t);
+                    if (currentTags.getString("type").equals("contributor")) {
+                        author = currentTags.getString("webTitle");
+                    }
+                }
 
                 // Extract the value for the key called "webPublicationDate"
-                String date = currentArticle.getString("webPublicationDate");
+                String date = "N/A";
+                if (currentArticle.has("webPublicationDate")) {
+                    date = currentArticle.getString("webPublicationDate");
+                }
+
 
                 // Extract the value for the key called "sectionId"
                 String section = currentArticle.getString("sectionId");
@@ -177,7 +188,7 @@ public final class QueryUtils {
 
                 // Create a new {@link Article} object with the title, author, date, section
                 // and url from the JSON response.
-                Article article = new Article(title, date, section, url);
+                Article article = new Article(title, author, date, section, url);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 articles.add(article);

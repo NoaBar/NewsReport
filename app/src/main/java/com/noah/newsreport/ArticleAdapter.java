@@ -19,9 +19,7 @@ import java.util.Date;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
-    private static final String LOCATION_SEPARATOR = "T";
     private static final String LOG_TAG = ArticleAdapter.class.getName();
-
 
     public ArticleAdapter (Activity activity, ArrayList<Article> articles) {
         super(activity, 0, articles);
@@ -43,8 +41,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         TextView title = (TextView) listItemView.findViewById(R.id.title);
         title.setText(currentArticle.getTitle());
 
-        //TextView author = (TextView) listItemView.findViewById(R.id.author);
-       // author.setText(currentArticle.getAuthor());
+        TextView author = (TextView) listItemView.findViewById(R.id.author);
+        author.setText(currentArticle.getAuthor());
 
         TextView date = (TextView) listItemView.findViewById(R.id.date);
         // Create a new Date object from the Date of the article
@@ -54,8 +52,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             date.setText(formatDate(dateObject));
         } catch (ParseException e) {
             Log.e(LOG_TAG,"Date is not valid.",e);
+            date.setText("N/A");
         }
-
 
         TextView section = (TextView) listItemView.findViewById(R.id.section);
         section.setText(currentArticle.getSection());
@@ -85,11 +83,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
             input = s0 + "GMT" + s1;
         }
-
         return df.parse( input );
-
     }
-
 
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.

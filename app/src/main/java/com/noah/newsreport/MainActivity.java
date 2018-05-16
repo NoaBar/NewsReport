@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity
      * URL for article data from The Guardian.
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?from-date=2008-01-01&to-date=2018-01-01&q=animals&api-key=6d99dba4-8b51-4515-9b45-8c791d34d544";
-
+            "http://content.guardianapis.com/search?from-date=2008-01-01&to-date=2018-01-01&q=animals&show-tags=contributor&api-key=6d99dba4-8b51-4515-9b45-8c791d34d544";
     /**
      * Adapter for the list of articles
      */
