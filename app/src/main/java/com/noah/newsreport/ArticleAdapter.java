@@ -35,7 +35,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
                     R.layout.list_item, parent, false);
         }
 
-        // Find the Article at the given position in the list of earthquakes
+        // Find the Article at the given position in the list of articles
         Article currentArticle = getItem(position);
 
         TextView title = (TextView) listItemView.findViewById(R.id.title);

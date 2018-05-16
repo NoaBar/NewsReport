@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
      * URL for article data from The Guardian.
      */
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?from-date=2008-01-01&to-date=2018-01-01&q=animals&show-tags=contributor&api-key=6d99dba4-8b51-4515-9b45-8c791d34d544";
+           "http://content.guardianapis.com/search?from-date=2008-01-01&to-date=2018-01-01&q=animals&show-tags=contributor&api-key=6d99dba4-8b51-4515-9b45-8c791d34d544";
     /**
      * Adapter for the list of articles
      */
@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity
         articleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Find the current earthquake that was clicked on
+                // Find the current article that was clicked on
                 Article currentArticle = mAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
-                Uri earthquakeUri = Uri.parse(currentArticle.getUrl());
+                Uri articleUri = Uri.parse(currentArticle.getUrl());
 
-                // Create a new intent to view the earthquake URI
-                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
+                // Create a new intent to view the article URI
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, articleUri);
 
                 // Send the intent to launch a new activity
                 startActivity(websiteIntent);
@@ -118,10 +118,10 @@ public class MainActivity extends AppCompatActivity
         // Set empty state text to display "No articles found."
         mEmptyStateTextView.setText(R.string.no_articles);
 
-        // Clear the adapter of previous earthquake data
+        // Clear the adapter of previous article data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link article}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (articles != null && !articles.isEmpty()) {
             mAdapter.addAll(articles);

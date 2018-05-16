@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Helper methods related to requesting and receiving earthquake data from The Guardian.
+ * Helper methods related to requesting and receiving article data from The Guardian.
  */
 public final class QueryUtils {
 
@@ -180,15 +180,17 @@ public final class QueryUtils {
 
                 // Extract the value for the key called "sectionId"
                 String section = currentArticle.getString("sectionId");
+                //Capitalizing the first letter of every section
+                String upperString = section.substring(0,1).toUpperCase() + section.substring(1);
 
                 // Extract the value for the key called "url"
                 String url = currentArticle.getString("webUrl");
 
                 // Create a new {@link Article} object with the title, author, date, section
                 // and url from the JSON response.
-                Article article = new Article(title, author, date, section, url);
+                Article article = new Article(title, author, date, upperString, url);
 
-                // Add the new {@link Earthquake} to the list of earthquakes.
+                // Add the new {@link article} to the list of articles.
                 articles.add(article);
             }
         } catch (JSONException e) {
