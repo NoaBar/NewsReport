@@ -12,4 +12,7 @@
     <string name="settings_menu_item">Settings</string>
     <string name="settings_title">News Settings</string>
 
+    <string name="settings_section_label">Section of article</string>
+    <string name="section_of_article_key" translatable="false">Section of article key</string>
+    <string name="settings_section_default" translatable="false">Fill section of article here</string>
 </resources>
