@@ -4,9 +4,11 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity
      * URL for article data from The Guardian.
      */
     private static final String GUARDIAN_REQUEST_URL =
-           "http://content.guardianapis.com/search?from-date=2008-01-01&to-date=2018-01-01&q=animals&show-tags=contributor&api-key=6d99dba4-8b51-4515-9b45-8c791d34d544";
+           "http://content.guardianapis.com/search";
     /**
      * Adapter for the list of articles
      */
@@ -105,9 +107,37 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    // onCreateLoader instantiates and returns a new Loader for the given ID
     public Loader<List<Article>> onCreateLoader(int i, Bundle bundle) {
-        // Create a new loader for the given URL
-        return new ArticleLoader(this, GUARDIAN_REQUEST_URL);
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences.
+        // The second parameter is the default value for this preference.
+        String searchWord = sharedPrefs.getString(
+                getString(R.string.settings_search_word_key),
+                getString(R.string.settings_search_word_default));
+
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default)
+        );
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value.
+        uriBuilder.appendQueryParameter("api-key", "6d99dba4-8b51-4515-9b45-8c791d34d544");
+        uriBuilder.appendQueryParameter("page-size", "10");
+        uriBuilder.appendQueryParameter("q", searchWord);
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+
+        // Return the completed uri:
+        return new ArticleLoader(this, uriBuilder.toString());
     }
 
     @Override

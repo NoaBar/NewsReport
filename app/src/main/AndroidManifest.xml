@@ -26,7 +26,7 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.newsreport.MainActivity"/>
+                android:value="com.noah.newsreport.MainActivity"/>
         </activity>
 
 

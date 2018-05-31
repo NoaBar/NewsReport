@@ -3,10 +3,18 @@
     android:title="@string/settings_title">
 
     <EditTextPreference
-        android:defaultValue="@string/settings_section_default"
-        android:inputType="numberDecimal"
-        android:key="@string/section_of_article_key"
+        android:defaultValue="@string/settings_search_word_default"
+        android:inputType="text"
+        android:key="@string/settings_search_word_key"
         android:selectAllOnFocus="true"
-        android:title="@string/settings_section_label" />
+        android:title="@string/settings_search_word_label" />
+
+
+    <ListPreference
+        android:defaultValue="@string/settings_order_by_default"
+        android:entries="@array/settings_order_by_labels"
+        android:entryValues="@array/settings_order_by_values"
+        android:key="@string/settings_order_by_key"
+        android:title="@string/settings_order_by_label" />
 
 </PreferenceScreen>
