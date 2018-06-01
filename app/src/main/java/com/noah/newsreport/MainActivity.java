@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
      * URL for article data from The Guardian.
      */
     private static final String GUARDIAN_REQUEST_URL =
-           "http://content.guardianapis.com/search";
+            "http://content.guardianapis.com/search";
     /**
      * Adapter for the list of articles
      */

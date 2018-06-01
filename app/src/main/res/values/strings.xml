@@ -16,7 +16,6 @@
     <string name="settings_search_word_default"> </string>
     <string name="settings_search_word_label">Search</string>
 
-
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order-by</string>
@@ -33,6 +32,8 @@
     <!-- Label for order-by oldest option [CHAR LIMIT=20] -->
     <string name="settings_order_by_oldest_label">Oldest</string>
     <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+
+    <!-- Label for Number of Results option -->
     <string name="settings_results_number_default">20</string>
     <string name="settings_results_number_key">page-size</string>
     <string name="settings_results_number_label">Number of results</string>

@@ -181,7 +181,7 @@ public final class QueryUtils {
                 // Extract the value for the key called "sectionId"
                 String section = currentArticle.getString("sectionId");
                 //Capitalizing the first letter of every section
-                String upperString = section.substring(0,1).toUpperCase() + section.substring(1);
+                String upperString = section.substring(0, 1).toUpperCase() + section.substring(1);
 
                 // Extract the value for the key called "url"
                 String url = currentArticle.getString("webUrl");
