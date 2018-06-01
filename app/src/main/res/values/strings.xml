@@ -33,4 +33,7 @@
     <!-- Label for order-by oldest option [CHAR LIMIT=20] -->
     <string name="settings_order_by_oldest_label">Oldest</string>
     <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+    <string name="settings_results_number_default">20</string>
+    <string name="settings_results_number_key">page-size</string>
+    <string name="settings_results_number_label">Number of results</string>
 </resources>

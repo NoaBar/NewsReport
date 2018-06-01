@@ -118,6 +118,11 @@ public class MainActivity extends AppCompatActivity
                 getString(R.string.settings_search_word_key),
                 getString(R.string.settings_search_word_default));
 
+        String resultsNumber = sharedPrefs.getString(
+                getString(R.string.settings_results_number_key),
+                getString(R.string.settings_results_number_default)
+        );
+
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default)
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity
 
         // Append query parameter and its value.
         uriBuilder.appendQueryParameter("api-key", "6d99dba4-8b51-4515-9b45-8c791d34d544");
-        uriBuilder.appendQueryParameter("page-size", "10");
+        uriBuilder.appendQueryParameter("page-size", resultsNumber);
         uriBuilder.appendQueryParameter("q", searchWord);
         uriBuilder.appendQueryParameter("order-by", orderBy);
         uriBuilder.appendQueryParameter("show-tags", "contributor");
