@@ -152,8 +152,20 @@ public class MainActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No articles found."
-        mEmptyStateTextView.setText(R.string.no_articles);
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // Set empty state text to display "No articles found."
+            mEmptyStateTextView.setText(R.string.no_articles);
+
+        } else {
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+        }
 
         // Clear the adapter of previous article data
         mAdapter.clear();
